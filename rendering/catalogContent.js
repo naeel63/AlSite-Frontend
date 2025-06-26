@@ -21,12 +21,25 @@ async function renderCatalog(catalogData) {
         tableDataOstatok.innerText = `${el.ostatok}`
         tableRow.appendChild(tableDataOstatok)
 
-        const tableDataButton = document.createElement('td')
-        const button = document.createElement('button')
-        button.dataset.id = el.id
-        button.innerText = `Добавить в корзину`
-        tableDataButton.appendChild(button)
-        tableRow.appendChild(tableDataButton)
+        const tableDataButtonAdd = document.createElement('td')
+        const buttonAdd = document.createElement('button')
+        buttonAdd.innerText = `Добавить в корзину`
+
+        buttonAdd.dataset.id = el.id
+        buttonAdd.addEventListener('click', (event) => {
+            if (cart.has(el.id)){
+                cart.get(el.id).quantity++
+            } else {
+                el.quantity = 1
+                cart.set(el.id, el)
+            }
+            
+            //console.log(cart)
+           // tableRow.dataset.quantity++;
+        })
+
+        tableDataButtonAdd.appendChild(buttonAdd)
+        tableRow.appendChild(tableDataButtonAdd)
 
         catalogTbody.appendChild(tableRow)
     })

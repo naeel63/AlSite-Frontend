@@ -1,3 +1,4 @@
+//переделать на data-active в тэге кнопки и поставить там смену цвета с помощью css
 //Покраска активной навигационной кнопки
 navigateButtons.forEach((el) => {
     el.addEventListener('click', (event) => {

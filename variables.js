@@ -5,6 +5,7 @@ const navButtonCatalog = document.querySelector('#navButtonCatalog')
 const navButtonCart = document.querySelector('#navButtonCart')
 
 let catalogData = [];
-let cart = [];
+let cart = new Map();
 let actualDate = [];
 let contacts = [];
+
