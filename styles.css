@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы в столбец */
+    align-items: center; /* Центрируем элементы по горизонтали */
+	background-color: #444;
+    padding: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.none {
+    display: none;
+} 
+
+
+#phoneNumbers {
+	display: flex; /* Располагаем номера телефонов горизонтально */
+	gap: 10px; /* Отступ между номерами телефонов */
+    margin-bottom: 10px; /* Добавьте отступ снизу для номеров телефонов */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px; /* Отступ между кнопками */
+}
+
+.nav-button {
+	background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.nav-button.active {
+    background-color: green;
+}
+
+#content {
+    background-color: #444;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#catalogTable, #cartTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#catalogTable th, #catalogTable td, #cartTable th, #cartTable td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: left;
+}
+
+#catalogTable th, #cartTable th {
+    background-color: #555;
+}
+
+
+
+#cart button {
+    background-color: #777;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+p {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: underline;
+}

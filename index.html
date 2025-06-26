@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+			<div id="navContacts"></div>
+			<div class="nav-buttons">
+				<button id="navButtonHome" name="home" role="button" class="nav-button active">Главная</button>
+				<button id="navButtonCatalog" name="catalog" role="button" class="nav-button">Каталог</button>
+				<button id="navButtonCart" name="cart" role="button" class="nav-button">Корзина</button>
+				<button id="navButtonContacts" name="contacts" role="button" class="nav-button">Контакты</button>
+			</div>
+        </nav>
+        <div id="content">
+            <div id="homeContent" class="content home">
+                <h1>Добро пожаловать на наш сайт!</h1>
+                <p>Здесь вы можете найти лучшие товары.</p>
+            </div>
+            <div id="catalogContent" class="content catalog none"> <!--поправить style display none-->
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+					<div>
+						<h1>Каталог товаров</h1>
+						<p id="actualPDate">Актуально на такой то день</p>
+					</div>
+                    <div id="cartPreview" style="display: flex; align-items: center;">
+						<div >
+							<h2>Количество товаров в корзине: <span id="cartCount">0</span></h2>
+							<ul id="cartItems" style ="display : none"></ul>
+							<button id="sendCart">Перейти к корзине</button>
+						</div>
+                    </div>
+                </div>
+                <input type="text" id="searchInput" placeholder="Поиск товаров...">
+                <table id="catalogTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Код</th>
+                            <th>Название</th>
+                            <th>Остаток</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalogTBody"></tbody>
+                </table>
+            </div>
+            <div id="cartContent" class="content cart none">
+                <h1>Корзина</h1>
+				<table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Код</th>
+                            <th>Название</th>
+                            <th>Количество</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTable"></tbody>
+                </table>
+            </div>
+            <div id="contactsContent" class="content contacts none">
+                <h1>Контакты</h1>
+                <p>Телефон: +123456789</p>
+                <p>Email: foo@foo.ru</p>
+                <p>Адрес: Некоторый адрес, 
+					<a href="https://yandex.ru/maps"> мы в Яндекс.Картах </a>
+				</p>
+            </div>
+        </div>
+    </div>
+    <script src="variables.js"></script>
+    <script src="/helpersFunctions/nav.js"></script>
+    <script src="/helpersFunctions/content.js"></script>
+    <script src="/repository/catalogContent.js"></script>
+    <script src="/repository/contacts.js"></script>
+    <script src="/rendering/navContacts.js"></script>
+    <script src="/rendering/catalogContent.js"></script>
+    <script src="/rendering/cartContent.js"></script>
+    <script src="/content/catalogContent.js"></script>
+    <script src="/content/cartContent.js"></script>
+    <script src="/nav/nav.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

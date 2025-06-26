@@ -1,0 +1,10 @@
+const navigateButtons = document.querySelectorAll('.nav-button');
+const contentContainers = document.querySelectorAll('.content');
+
+const navButtonCatalog = document.querySelector('#navButtonCatalog')
+const navButtonCart = document.querySelector('#navButtonCart')
+
+let catalogData = [];
+let cart = [];
+let actualDate = [];
+let contacts = [];
