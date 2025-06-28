@@ -29,26 +29,34 @@
 						<p id="actualPDate">Актуально на такой то день</p>
 					</div>
                     <div id="cartPreview">
-						<div >
-							<h2>Количество товаров в корзине: <span id="cartCount">0</span></h2>
-							<ul id="cartItems" style ="display : none"></ul>
-							<button id="sendCart">Перейти к корзине</button>
-						</div>
+                        <h2>
+                            Количество товаров в корзине: 
+                            <span id="cartCount" data-quantity="0">
+                                0
+                            </span>
+                        </h2>
+                        <button id="goToCart">Перейти к корзине</button>
                     </div>
                 </div>
-                <input type="text" id="searchInput" placeholder="Поиск товаров...">
-                <table id="catalogTable">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Код</th>
-                            <th>Название</th>
-                            <th>Остаток</th>
-                            <th>Действие</th>
-                        </tr>
-                    </thead>
-                    <tbody id="catalogTBody"></tbody>
-                </table>
+                <div>
+                    <button>Каталог</button>
+                    <button>Группы</button>
+                </div>
+                <div>
+                    <input type="text" id="searchInput" placeholder="Поиск товаров...">
+                    <table id="catalogTable">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Код</th>
+                                <th>Название</th>
+                                <th>Остаток</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalogTBody"></tbody>
+                    </table>
+                </div>
             </div>
             <div id="cartContent" class="content cart none">
                 <h1>Корзина</h1>

@@ -12,3 +12,9 @@ document.querySelector('#searchInput')
     .addEventListener('input', async (event) => {
         await filterCatalog(event.target.value);
     });
+
+//переход к корзине
+document.querySelector('#goToCart')
+    .addEventListener('click', (event) => {
+        navButtonCart.click()
+    })

@@ -18,3 +18,10 @@ async function filterCatalog(query) {
     );
     renderCatalog(filteredData);
 }
+
+async function cartCountChange(difference) {
+    let a = Math.max(0, Number(cartCount.dataset.quantity))
+    a += difference
+    cartCount.dataset.quantity = a
+    cartCount.innerText = cartCount.dataset.quantity
+}

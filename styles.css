@@ -6,10 +6,12 @@ body {
     padding: 0;
 }
 
+
+
 nav {
     display: flex;
-    flex-direction: column; /* Располагаем элементы в столбец */
-    align-items: center; /* Центрируем элементы по горизонтали */
+    flex-direction: column;
+    align-items: center;
 	background-color: #444;
     padding: 10px;
 }
@@ -17,6 +19,7 @@ nav {
 #cartPreview {
     background-color:#645d5d;
     border-radius: 15px;
+    padding: 5px;
 }
 
 .container {
@@ -30,14 +33,14 @@ nav {
 
 
 #phoneNumbers {
-	display: flex; /* Располагаем номера телефонов горизонтально */
-	gap: 10px; /* Отступ между номерами телефонов */
-    margin-bottom: 10px; /* Добавьте отступ снизу для номеров телефонов */
+	display: flex;
+	gap: 10px;
+    margin-bottom: 10px; 
 }
 
 .nav-buttons {
     display: flex;
-    gap: 10px; /* Отступ между кнопками */
+    gap: 10px;
 }
 
 .nav-button {
@@ -92,4 +95,11 @@ p {
 a {
     color: inherit !important;
     text-decoration: underline;
+}
+
+div {
+    border-style: solid;
+    border-color: rgb(238, 183, 112);
+    border-width: 6px;
+    margin: 3px
 }

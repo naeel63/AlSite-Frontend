@@ -26,7 +26,7 @@ async function renderCatalog(catalogData) {
         buttonAdd.innerText = `Добавить в корзину`
 
         buttonAdd.dataset.id = el.id
-        buttonAdd.addEventListener('click', (event) => {
+        buttonAdd.addEventListener('click', async (event) => {
             if (cart.has(el.id)){
                 cart.get(el.id).quantity++
             } else {
@@ -34,6 +34,7 @@ async function renderCatalog(catalogData) {
                 cart.set(el.id, el)
             }
             
+            await cartCountChange(1)
             //console.log(cart)
            // tableRow.dataset.quantity++;
         })
@@ -44,6 +45,8 @@ async function renderCatalog(catalogData) {
         catalogTbody.appendChild(tableRow)
     })
 }
+
+
 
 async function renderActualDate(actualDate) {
     if(actualDate && actualDate.date){

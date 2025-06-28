@@ -25,9 +25,12 @@ async function renderCart(cart) {
         const buttonClear = document.createElement('button')
 
         buttonClear.innerText = `Убрать 1 единицу товара`
-        buttonClear.addEventListener('click', (event) => {
+        buttonClear.addEventListener('click', async (event) => {
             if (cart.has(el.id) && cart.get(el.id).quantity >0){
+
                 cart.get(el.id).quantity--
+                cartCountChange(-1)
+
                 if (cart.get(el.id).quantity == 0) {
                     if(cart.delete(el.id)){
 
