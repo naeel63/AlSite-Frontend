@@ -27,9 +27,7 @@ nav {
     margin: 0 auto;
 }
 
-.none {
-    display: none;
-} 
+
 
 
 #phoneNumbers {
@@ -103,3 +101,12 @@ div {
     border-width: 6px;
     margin: 3px
 }
+
+.groupsGeneralDivision {
+    display: flex;
+    flex-direction: column;
+}
+
+.none {
+    display: none;
+} 

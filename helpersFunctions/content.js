@@ -25,3 +25,26 @@ async function cartCountChange(difference) {
     cartCount.dataset.quantity = a
     cartCount.innerText = cartCount.dataset.quantity
 }
+
+function tableCreate(thArray){
+    if (!thArray.length == 0){
+        const table = document.createElement('table')
+        const thead = document.createElement('thead')
+        table.appendChild(thead)
+
+        const tr = document.createElement('tr')
+        thead.appendChild(tr)
+
+        thArray.forEach(el => {
+            const th = document.createElement('th')
+            th.innerText = el
+            tr.appendChild(th)
+        })
+
+        const tbody = document.createElement('tbody')
+        table.appendChild(tbody)
+        return table
+    } else {
+        console.error('В функцию создания таблицы не были переданы названия столбцов')
+    }
+}

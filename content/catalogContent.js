@@ -7,6 +7,20 @@ navButtonCatalog.addEventListener('click', async (event) => {
     await renderActualDate(actualDate);
 })
 
+//Отображение групп при нажатии на кнопку групп
+groupsButton.addEventListener('click', async (event) => {
+    catalogGeneralDivision.classList.add('none')
+    groupsGeneralDivision.classList.remove('none')
+
+    const groupsGeneral = await fetchGroups();
+    await renderGroupsGeneral(groupsGeneral)
+})
+
+catalogButton.addEventListener('click', (event) => {
+    catalogGeneralDivision.classList.remove('none')
+    groupsGeneralDivision.classList.add('none')
+})
+
 //фильтр по вводу
 document.querySelector('#searchInput')
     .addEventListener('input', async (event) => {
