@@ -35,8 +35,6 @@ async function renderCatalog(catalogData) {
             }
             
             await cartCountChange(1)
-            //console.log(cart)
-           // tableRow.dataset.quantity++;
         })
 
         tableDataButtonAdd.appendChild(buttonAdd)
