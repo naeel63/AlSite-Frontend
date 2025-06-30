@@ -1,6 +1,10 @@
 async function renderCart(cart) {
-	const cartTBody = document.querySelector('#cartTBody')
-    cartTBody.innerHTML = '';
+	const cartContent = document.querySelector('#cartContent')
+    cartContent.innerHTML = '';
+
+    const columnsName = ['', 'Код','Название','Количество','Действие']
+    const cartTable = tableCreate(columnsName)
+    const cartTBody = cartTable.lastChild
 
     cart.forEach((el, index) => {
         const tableRow = document.createElement('tr')
@@ -53,5 +57,6 @@ async function renderCart(cart) {
 
         tableRow.appendChild(tableDataButtonClear)
         cartTBody.appendChild(tableRow)
+        cartContent.appendChild(cartTable)
     })
 }
