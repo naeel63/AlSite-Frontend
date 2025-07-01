@@ -8,5 +8,5 @@ function navigateButtonsInactive() {
 //вспомогательная функция, чтобы js нормально обрабатывал fetchContacts
 async function displayNavContacts(){
     contacts = await fetchContacts();
-    await renderNavContacts(contacts);
+    await renderHeaderContacts(contacts);
 }

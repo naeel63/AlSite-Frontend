@@ -6,17 +6,21 @@
     <title>Мой сайт</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <nav>
-			<div id="navContacts"></div>
-			<div class="nav-buttons">
-				<button id="navButtonHome" name="home" role="button" class="nav-button active">Главная</button>
-				<button id="navButtonCatalog" name="catalog" role="button" class="nav-button">Каталог</button>
-				<button id="navButtonCart" name="cart" role="button" class="nav-button">Корзина</button>
-				<button id="navButtonContacts" name="contacts" role="button" class="nav-button">Контакты</button>
-			</div>
-        </nav>
+    <header id="cap" class="cap">
+        <div class="container cap_container">
+            <h1>АВТОЛИК</h1>
+            <h2 id="headerContacts"></h2>
+            <nav class="nav-buttons">
+                <button id="navButtonHome" name="home" role="button" class="nav-button active">Главная</button>
+                <button id="navButtonCatalog" name="catalog" role="button" class="nav-button">Каталог</button>
+                <button id="navButtonCart" name="cart" role="button" class="nav-button">Корзина</button>
+                <button id="navButtonContacts" name="contacts" role="button" class="nav-button">Контакты</button>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
         <div id="content">
             <div id="homeContent" class="content home">
                 <h1>Добро пожаловать на наш сайт!</h1>
@@ -90,7 +94,7 @@
 				</p>
             </div>
         </div>
-    </div>
+    </main>
     <script src="variables.js"></script>
     <script src="/helpersFunctions/universalFunctions.js"></script>
     <script src="/helpersFunctions/nav.js"></script>
@@ -99,7 +103,7 @@
     <script src="/repository/catalog/groupsGeneral.js"></script>
     <script src="/repository/catalog/groupData.js"></script>
     <script src="/repository/contacts.js"></script>
-    <script src="/rendering/navContacts.js"></script>
+    <script src="/rendering/Contacts.js"></script>
     <script src="/rendering/catalog/catalogContent.js"></script>
     <script src="/rendering/Groups/Helper/GroupsFunctions.js"></script>
     <script src="/rendering/Groups/GroupsGeneral.js"></script>
@@ -107,6 +111,7 @@
     <script src="/content/catalogContent.js"></script>
     <script src="/content/cartContent.js"></script>
     <script src="/nav/nav.js"></script>
-    <script src="script.js"></script>
+    <script src="/header/animations.js"></script>
+    <script defer src="script.js"></script>
 </body>
 </html>

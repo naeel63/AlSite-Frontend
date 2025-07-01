@@ -1,34 +1,61 @@
 body {
+    padding-top: 92px;
     font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #0000008a;
     margin: 0;
-    padding: 0;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.cap {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(189, 151, 151);
+    transition: box-shadow .6s;
+}
+
+.cap_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: padding-top .3s, padding-bottom .3s;
+}
+
+.cap_shadow {
+    -webkit-box-shadow: 0px 5px 79px 12px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 79px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 79px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cap_shadow .cap_container {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 
 
 nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;    
     align-items: center;
-	background-color: #444;
+	background-color: #a0a0a0;
     padding: 10px;
 }
 
 #cartPreview {
-    background-color:#645d5d;
+    background-color:#999393;
     border-radius: 15px;
     padding: 5px;
 }
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-
-
 
 #phoneNumbers {
 	display: flex;
@@ -42,7 +69,7 @@ nav {
 }
 
 .nav-button {
-	background-color: #555;
+	background-color: #a1a1a1;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -55,9 +82,8 @@ nav {
 }
 
 #content {
-    background-color: #444;
+    background-color: #ffffff;
     padding: 20px;
-    margin-top: 20px;
 }
 
 #catalogTable, #cartTable {
@@ -66,13 +92,13 @@ nav {
 }
 
 #catalogTable th, #catalogTable td, #cartTable th, #cartTable td {
-    border: 1px solid #555;
+    border: 1px solid #000000;
     padding: 8px;
     text-align: left;
 }
 
 #catalogTable th, #cartTable th {
-    background-color: #555;
+    background-color: #ffffff;
 }
 
 
@@ -83,16 +109,6 @@ nav {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-p {
-    color: inherit !important;
-    text-decoration: none;
-}
-
-a {
-    color: inherit !important;
-    text-decoration: underline;
 }
 
 div {
