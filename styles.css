@@ -7,14 +7,20 @@ body {
 
     background-image: url('background.jpg');
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 100% 100%;
     background-attachment: fixed;
+    overflow-x:hidden
+}
+
+html {
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
+  overflow: auto;
 }
 
 .container {
     max-width: 1500px;
     margin: 0 auto;
-
 }
 
 .cap {
@@ -55,12 +61,6 @@ body {
     padding: 5px;
 }
 
-#phoneNumbers {
-	display: flex;
-	gap: 10px;
-    margin-bottom: 10px; 
-}
-
 .nav-button {
 	background-color: #a1a1a1;
     color: #fff;
@@ -79,7 +79,7 @@ body {
     padding: 20px;
 }
 
-#catalogTable, #cartTable {
+#catalogTable {
     width: 100%;
     border-collapse: collapse;
 }
@@ -94,7 +94,9 @@ body {
     background-color: #ffffff;
 }
 
-
+::-webkit-scrollbar {
+  z-index: 10000;
+}
 
 #cart button {
     background-color: #777;
@@ -119,3 +121,4 @@ div {
 .none {
     display: none;
 } 
+

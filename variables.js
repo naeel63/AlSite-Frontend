@@ -10,11 +10,11 @@ const groupsButton = document.querySelector('#groupsButton')
 const catalogGeneralDivision = document.querySelector('#catalogGeneralDivision')
 const groupsGeneralDivision = document.querySelector('#groupsGeneralDivision')
 
-const cartCount = document.querySelector('#cartCount')
+const cartItemCountInCatalogContainer = document.querySelector('#cartItemCountInCatalog')
 
 let catalogData = [];
 let cart = new Map();
 let actualDate = [];
 let contacts = [];
 //let groupsGeneral = [];
-
+let cartItemQuantity = 0;

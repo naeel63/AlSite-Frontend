@@ -19,11 +19,10 @@ async function filterCatalog(query) {
     renderCatalog(filteredData);
 }
 
-async function cartCountChange(difference) {
-    let a = Math.max(0, Number(cartCount.dataset.quantity))
-    a += difference
-    cartCount.dataset.quantity = a
-    cartCount.innerText = cartCount.dataset.quantity
+//Функция, прибавляющая получаемую разницу(difference) к количеству товара в корзине
+async function cartItemQuantityChange(difference) {
+    cartItemQuantity = Math.max(0, cartItemQuantity + difference)
+    cartItemCountInCatalogContainer.innerText = cartItemQuantity
 }
 
 function tableCreate(thArray){

@@ -34,7 +34,7 @@ async function renderCatalog(catalogData) {
                 cart.set(el.id, el)
             }
             
-            await cartCountChange(1)
+            await cartItemQuantityChange(1)
         })
 
         tableDataButtonAdd.appendChild(buttonAdd)

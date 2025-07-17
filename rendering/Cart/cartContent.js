@@ -1,6 +1,8 @@
 async function renderCart(cart) {
-	const cartContent = document.querySelector('#cartContent')
-    cartContent.innerHTML = '';
+	const cartTableContainer = document.querySelector('#cartTable')
+    cartTableContainer.innerHTML = '';
+    const cartItemCountContainer = document.querySelector('#cartItemCountInCart')
+    cartItemCountContainer.innerText = `${cartItemQuantity}`
 
     const columnsName = ['', 'Код','Название','Количество','Действие']
     const cartTable = tableCreate(columnsName)
@@ -33,7 +35,7 @@ async function renderCart(cart) {
             if (cart.has(el.id) && cart.get(el.id).quantity >0){
 
                 cart.get(el.id).quantity--
-                cartCountChange(-1)
+                cartItemQuantityChange(-1)
 
                 if (cart.get(el.id).quantity == 0) {
                     if(cart.delete(el.id)){
@@ -57,6 +59,7 @@ async function renderCart(cart) {
 
         tableRow.appendChild(tableDataButtonClear)
         cartTBody.appendChild(tableRow)
-        cartContent.appendChild(cartTable)
+        
     })
+    cartTableContainer.appendChild(cartTable)
 }

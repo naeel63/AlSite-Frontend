@@ -108,7 +108,7 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
                     cart.set(el.id, el)
                 }
                 
-                await cartCountChange(1)
+                await cartItemQuantityChange(1)
             })
             action.appendChild(buttonAdd)
             tr.appendChild(action)
