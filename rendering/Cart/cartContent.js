@@ -1,4 +1,6 @@
 async function renderCart(cart) {
+    renderApplicationContainer()
+
 	const cartTableContainer = document.querySelector('#cartTable')
     cartTableContainer.innerHTML = '';
     const cartItemCountContainer = document.querySelector('#cartItemCountInCart')
@@ -62,4 +64,17 @@ async function renderCart(cart) {
         
     })
     cartTableContainer.appendChild(cartTable)
+}
+
+async function renderApplicationContainer(){
+    createApplicationForm = document.querySelector('#create-application-form')
+
+    createApplicationForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        
+        const formData = new FormData(createApplicationForm)
+        const formDataObject = Object.fromEntries(formData)
+        
+        fetchPost(formDataObject)
+    })
 }
