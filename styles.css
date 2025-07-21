@@ -1,7 +1,7 @@
 body {
     padding-top: 92px;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #F5F7FA;
     color: #0000008a;
     margin: 0;
 
@@ -21,14 +21,25 @@ html {
 .container {
     max-width: 1500px;
     margin: 0 auto;
+    background-color: #F5F7FA;
 }
 
+div {
+    border-style: solid;
+    border-color: rgb(238, 183, 112);
+    border-width: 6px;
+    margin: 3px
+}
+
+/*
+#region Анимация и стили header
+*/
 .cap {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(255, 255, 255, .7);
+    background-color: #F5F7FA;
     box-shadow: 0px 0px 30px -11px rgba(0,0,0,0.8);
     backdrop-filter: blur(2px);
 }
@@ -55,12 +66,13 @@ html {
     padding-bottom: 7px;
 }
 
-#cartPreview {
-    background-color:#999393;
-    border-radius: 15px;
-    padding: 5px;
-}
+/*
+#endregion Анимация header 
+*/
 
+/*
+#region Cтили компонентов nav
+*/
 .nav-button {
 	background-color: #a1a1a1;
     color: #fff;
@@ -69,14 +81,42 @@ html {
     margin: 0 10px;
     cursor: pointer;
 }
-
 .nav-button.active {
     background-color: green;
 }
+/*
+#endregion Cтили компонентов nav 
+*/
 
 #content {
-    background-color: #ffffff;
     padding: 20px;
+}
+
+#groupsGeneralDivision {
+    display: flex;
+    flex-direction: row;
+}
+
+#groupsMenu {
+    width: 30%;
+    height: fit-content;
+}
+
+#groupMain {
+    width: 70%;
+}
+ 
+#groupMain li {
+    list-style-position: inside;
+}
+
+.groupsDivision {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+ul {
+  padding-left: 1.5em;
 }
 
 #catalogTable {
@@ -90,35 +130,12 @@ html {
     text-align: left;
 }
 
-#catalogTable th, #cartTable th {
-    background-color: #ffffff;
-}
-
-::-webkit-scrollbar {
-  z-index: 10000;
-}
-
-#cart button {
-    background-color: #777;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-div {
-    border-style: solid;
-    border-color: rgb(238, 183, 112);
-    border-width: 6px;
-    margin: 3px
-}
-
-.groupsGeneralDivision {
-    display: flex;
-    flex-direction: row;
+#cartPreview {
+    background-color:#999393;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 .none {
     display: none;
 } 
-
