@@ -1,9 +1,12 @@
 async function fetchPost(bodyObject) {
-    const url = ""
+    const url = "https://localhost:7128/api/Application"
 	try {
         const response = await fetch(url, {
             method : 'post',
-            body: JSON.stringify(bodyObject)
+            body: JSON.stringify(bodyObject),
+            headers:{
+                "Content-Type": "application/json; charset=UTF-8",
+            } 
         })
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
