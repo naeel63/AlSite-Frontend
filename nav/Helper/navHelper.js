@@ -1,11 +1,15 @@
-//делает все nav-button неактивными-невыбранными
+/**
+ * Убирает у всех nav-button класс .active
+ */
 function navigateButtonsInactive() {
     navigateButtons.forEach((el) => {
         el.classList.remove('active');
     });
 };
 
-//вспомогательная функция, чтобы js нормально обрабатывал fetchContacts
+/**
+ * Отображает контакты в header
+ */
 async function displayNavContacts(){
     contacts = await fetchContacts();
     await renderHeaderContacts(contacts);

@@ -22,11 +22,11 @@
     </header>
     <main class="container">
         <div id="content">
-            <div id="homeContent" class="content home">
+            <div id="homeContent" class="content">
                 <h1>Добро пожаловать на наш сайт!</h1>
                 <p>Здесь вы можете найти лучшие товары.</p>
             </div>
-            <div id="catalogContent" class="content catalog none"> <!--поправить style display none-->
+            <div id="catalogContent" class="content none"> <!--поправить style display none-->
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 					<div>
 						<h1>Каталог товаров</h1>
@@ -70,7 +70,7 @@
                     </table>
                 </div>
             </div>
-            <div id="cartContent" class="content cart none">
+            <div id="cartContent" class="content none">
                 <div style="display: flex; justify-content: space-between;">
                     <h2>Корзина</h2>
                     <div>
@@ -88,7 +88,7 @@
 				<div id="cartTable">
                 </div>
             </div>
-            <div id="contactsContent" class="content contacts none">
+            <div id="contactsContent" class="content none">
                 <h1>Контакты</h1>
                 <p>Телефон: +123456789</p>
                 <p>Email: foo@foo.ru</p>
@@ -100,7 +100,6 @@
     </main>
     <script src="variables.js"></script>
     <script src="/helpersFunctions/universalFunctions.js"></script>
-    <script src="/helpersFunctions/nav.js"></script>
     <script src="/helpersFunctions/content.js"></script>
     <script src="/repository/catalog/catalogContent.js"></script>
     <script src="/repository/catalog/groupsGeneral.js"></script>
@@ -111,9 +110,11 @@
     <script src="/rendering/Catalog/Groups/Helper/GroupsFunctions.js"></script>
     <script src="/rendering/Catalog/Groups/GroupsGeneral.js"></script>
     <script src="/rendering/Catalog/Groups/Animations/groupMenuAnimation.js"></script>
+    <script src="rendering/Cart/Helper/cartHelper.js"></script>
     <script src="/rendering/Cart/cartContent.js"></script>
     <script src="/content/catalogContent.js"></script>
     <script src="/content/cartContent.js"></script>
+    <script src="/nav/Helper/navHelper.js"></script>
     <script src="/nav/nav.js"></script>
     <script src="/Header/Animations/animations.js"></script>
     <script defer src="script.js"></script>
