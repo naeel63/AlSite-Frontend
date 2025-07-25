@@ -27,47 +27,13 @@
                 <p>Здесь вы можете найти лучшие товары.</p>
             </div>
             <div id="catalogContent" class="content none"> <!--поправить style display none-->
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-					<div>
-						<h1>Каталог товаров</h1>
-						<p id="actualPDate">Актуально на такой то день</p>
-					</div>
-                    <div id="cartPreview">
-                        <h2>
-                            Количество товаров в корзине: 
-                            <span id="cartItemCountInCatalog" data-quantity="0">
-                                0
-                            </span>
-                        </h2>
-                        <button id="goToCart">Перейти к корзине</button>
-                    </div>
-                </div>
-                <div>
-                    <button id="catalogButton">Каталог</button>
-                    <button id="groupsButton">Группы</button>
-                </div>
-                <div id="groupsGeneralDivision" class="none">
+                <div id="groupsGeneralDivision">
                     <div id="groupsMenu" class="groupsDivision">
                         <h2>Каталог групп:</h2>
                     </div>
                     <div id="groupMain" class="groupsDivision">
                         мейн
                     </div>
-                </div>
-                <div id="catalogGeneralDivision">
-                    <input type="text" id="searchInput" placeholder="Поиск товаров...">
-                    <table id="catalogTable">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Код</th>
-                                <th>Название</th>
-                                <th>Остаток</th>
-                                <th>Действие</th>
-                            </tr>
-                        </thead>
-                        <tbody id="catalogTBody"></tbody>
-                    </table>
                 </div>
             </div>
             <div id="cartContent" class="content none">
@@ -106,17 +72,16 @@
     <script src="/repository/catalog/groupData.js"></script>
     <script src="/repository/contacts.js"></script>
     <script src="/rendering/Contacts/Contacts.js"></script>
-    <script src="/rendering/Catalog/catalogContent.js"></script>
     <script src="/rendering/Catalog/Groups/Helper/GroupsFunctions.js"></script>
     <script src="/rendering/Catalog/Groups/GroupsGeneral.js"></script>
     <script src="/rendering/Catalog/Groups/Animations/groupMenuAnimation.js"></script>
-    <script src="rendering/Cart/Helper/cartHelper.js"></script>
+    <script src="/rendering/Cart/Helper/cartHelper.js"></script>
     <script src="/rendering/Cart/cartContent.js"></script>
     <script src="/content/catalogContent.js"></script>
     <script src="/content/cartContent.js"></script>
     <script src="/nav/Helper/navHelper.js"></script>
     <script src="/nav/nav.js"></script>
     <script src="/Header/Animations/animations.js"></script>
-    <script defer src="script.js"></script>
+    <script src="/rendering/Catalog/StartPointRender/catalogStartPointRender.js"></script>
 </body>
 </html>

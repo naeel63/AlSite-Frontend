@@ -1,3 +1,7 @@
+/**
+ * Рендеринг главных групп товаров
+ * @param {*} data Массив из главных групп товаров
+ */
 async function renderGroupsGeneral(data) {
     const groupsMenu = document.querySelector('#groupsMenu')
     const ulGeneral = document.createElement('ul')
@@ -13,13 +17,11 @@ async function renderGroupsGeneral(data) {
         ulGeneral.appendChild(li)
     })
     groupsMenu.appendChild(ulGeneral)
-
-    console.log('Конец renderGroupsGeneral')
 }
 
 /**
- * Rendering subgroups names in #groupsMenu division and
- * rendering data in #groupMain division
+ * Рендеринг имен подгрупп в разделе #groupsMenu и 
+ * рендеринг данных в разделе #groupMain 
  */
 async function renderGroup(event){
     const groupData = await fetchGroupData(event.target.dataset.id)
