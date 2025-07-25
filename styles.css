@@ -106,10 +106,9 @@ div {
 }
 
 #groupsGeneralDivision li{
-    position: relative; /* Устанавливаем позиционирование */
-    padding-left: 18px;
+    position: relative;
     width: fit-content;
-    margin-left: 3px;
+    margin-left: 15px;
     border-bottom: 3px solid transparent;
     border-radius: 5px;
     transition: .3s;
@@ -121,15 +120,19 @@ div {
     }
 }
 
-
+/*
 #groupsGeneralDivision li::before{
-    content: url(img/the_truth_plus.svg);
+    /*content: var(--icon-group-menu);
     position: absolute;
     left: 0;
     vertical-align: middle;
     padding: 1px 0px 0px 0px;
 }
+*/
 
+.icon-menu {
+    content: url('img/plus.svg');
+}
 
 /*
 #groupsGeneralDivision li::marker{

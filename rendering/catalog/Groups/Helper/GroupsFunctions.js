@@ -4,25 +4,26 @@
  * @param {*} groupData 
  */
 async function renderSubgroupsNamesInGroupsMenu(groupData){
-    console.log('Вход в renderSubgroupsNamesInGroupsMenu')
     const liGeneral = document.querySelector(`[data-id="${groupData.id}"]`) // поправить
-    if (liGeneral.childElementCount == 0){
+    if (liGeneral.childElementCount == 1){
         const ulChild = document.createElement('ul')
 
         ulChild.dataset.name = `${groupData.name} ulChild`
 
         groupData.children.forEach(el => {
             const liChild = document.createElement('li')
-            liChild.innerText = el.name
+
+            liChild.innerHTML = `<span class="icon-menu"></span> ${el.name}`
+
             liChild.dataset.id = el.id
+            
 
             ulChild.appendChild(liChild)
         })
         liGeneral.appendChild(ulChild)
     } else {
-        liGeneral.firstElementChild.classList.toggle('none')
+        liGeneral.firstElementChild.nextElementSibling.classList.toggle('none')
     }
-    console.log('Выход из renderSubgroupsNamesInGroupsMenu')
 }
 
 /**
@@ -31,7 +32,6 @@ async function renderSubgroupsNamesInGroupsMenu(groupData){
  * @param {*} groupData 
  */
 async function renderGroupMain(groupData) {
-    console.log('вход в рендер груп мейн')
     const groupMainDivision = document.querySelector('#groupMain')
     
     removeAllChildren(groupMainDivision)
@@ -46,7 +46,6 @@ async function renderGroupMain(groupData) {
  * @param {*} groupData 
  */
 async function renderSubgroupsNamesInGroupMain(groupData, groupMainDivision){
-    //console.log('Вход в renderSubgroupsNamesInGroupMain')
 
     if (!groupData.children.length == 0) {
         const ul = document.createElement('ul')
@@ -61,14 +60,12 @@ async function renderSubgroupsNamesInGroupMain(groupData, groupMainDivision){
 
         groupMainDivision.appendChild(ul)
     }
-    //console.log('Выход из renderSubgroupsNamesInGroupMain')
 }
 
 /**
  * Rendering group's children and subgroups in groupMain division
  */
 async function renderProductsInGroupMain(groupData, groupMainDivision){
-    //console.log('Вход в renderProductsInGroupMain')
 
     if (!groupData.products.length == 0) {
         
@@ -118,5 +115,4 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
 
         groupMainDivision.appendChild(groupMainTable)
     }
-    console.log('Выход в renderProductsInGroupMain')
 }
