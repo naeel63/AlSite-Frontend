@@ -27,29 +27,30 @@ async function renderSubgroupsNamesInGroupsMenu(groupData){
 }
 
 /**
- * Rendering group's data in #groupMain division.
- * Рендеринг данных группы в #groupMain разделе.
- * @param {*} groupData 
+ * Рендеринг данных группы в groupMain
+ * @param {*} groupData Данные группы(подгруппы + ее товары)
  */
 async function renderGroupMain(groupData) {
-    const groupMainDivision = document.querySelector('#groupMain')
+    const groupMainSubgroupsDivision = document.querySelector('#groupMainSubgroups')
+    const groupMainProductsTBody = document.querySelector('#groupMainProductsTableBody')
     
-    removeAllChildren(groupMainDivision)
-    await renderSubgroupsNamesInGroupMain(groupData, groupMainDivision)
-    await renderProductsInGroupMain(groupData, groupMainDivision)
+    removeAllChildren(groupMainSubgroupsDivision)
+    removeAllChildren(groupMainProductsTBody)
+    await renderSubgroupsNamesInGroupMain(groupData, groupMainSubgroupsDivision)
+    await renderProductsInGroupMain(groupData, groupMainProductsTBody)
 }
 
 
 /**
- * Rendering group's subgroups in #groupMain division.
- * Рендеринг имен подгрупп группы в #groupMain разделе.
- * @param {*} groupData 
+ * Рендеринг имен подгрупп в groupMain
+ * @param {*} groupData Данные группы(подгруппы + ее товары)
+ * @param {*} groupMainSubgroupsDivision Ccылка на контейнер, куда будут рендерится имена подгрупп
  */
-async function renderSubgroupsNamesInGroupMain(groupData, groupMainDivision){
+async function renderSubgroupsNamesInGroupMain(groupData, groupMainSubgroupsDivision){
 
     if (!groupData.children.length == 0) {
         const ul = document.createElement('ul')
-        ul.innerText = 'Подгруппы:'
+        ul.innerText += 'Подгруппы:'
 
         groupData.children.forEach(el => {
             const li = document.createElement('li')
@@ -58,38 +59,32 @@ async function renderSubgroupsNamesInGroupMain(groupData, groupMainDivision){
             ul.appendChild(li)
         })
 
-        groupMainDivision.appendChild(ul)
+        groupMainSubgroupsDivision.appendChild(ul)
     }
 }
 
 /**
- * Rendering group's children and subgroups in groupMain division
+ * Рендеринг продуктов в таблице продуктов при открытии группы с продуктами
+ * @param {*} groupData Данные группы(подгруппы + ее товары)
+ * @param {*} groupMainProductsTBody Ссылка на тело таблицы, куда вставляются записи о товарах группы
  */
-async function renderProductsInGroupMain(groupData, groupMainDivision){
+async function renderProductsInGroupMain(groupData, groupMainProductsTBody){
 
     if (!groupData.products.length == 0) {
         
-            
-        const columnsName = ['', 'Код','Название',/*'Остаток',*/'Действие']
-        const groupMainTable = tableCreate(columnsName)
-        const groupMainTBody = groupMainTable.lastChild
-
         groupData.products.forEach((el, index) => {
             const tr = document.createElement('tr')
 
             const tdIndex = document.createElement('td')
             tdIndex.innerText = index + 1
-            tdIndex.style.width = '5%'
             tr.appendChild(tdIndex)
 
             const tdCode = document.createElement('td')
             tdCode.innerText = el.code
-            tdCode.style.width = '20%'
             tr.appendChild(tdCode)
 
             const tdName = document.createElement('td')
             tdName.innerText = el.name
-            tdName.style.width = '55%'
             tr.appendChild(tdName)
 
             /*
@@ -99,7 +94,6 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
             */
 
             const action = document.createElement('td')
-            action.style.width = '20%'
             const buttonAdd = document.createElement('button')
             buttonAdd.innerText = `Добавить в корзину`
             buttonAdd.dataset.id = el.id 
@@ -116,9 +110,7 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
             action.appendChild(buttonAdd)
             tr.appendChild(action)
 
-            groupMainTBody.appendChild(tr)
+            groupMainProductsTBody.appendChild(tr)
         })
-
-        groupMainDivision.appendChild(groupMainTable)
     }
 }
