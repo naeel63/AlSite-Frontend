@@ -155,6 +155,10 @@ div {
     top: 61px;
 }
 
+/*
+#region Стили #groupMain
+*/
+
 #groupMain {
     width: 70%;
 }
@@ -162,6 +166,23 @@ div {
 #groupMain li {
     list-style-position: inside;
 }
+
+#groupMain table {
+    margin: 0px 3%;
+    border-collapse: collapse;
+}
+
+#groupMain th {
+    text-align: start;
+}
+
+#groupMain th :nth-child(1){
+    width: 50%;
+}
+
+/*
+#endregion Стили #groupMain
+*/
 
 .groupsDivision {
     background-color: #fff;

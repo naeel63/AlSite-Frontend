@@ -70,7 +70,7 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
     if (!groupData.products.length == 0) {
         
             
-        const columnsName = ['', 'Код','Название','Остаток','Действие']
+        const columnsName = ['', 'Код','Название',/*'Остаток',*/'Действие']
         const groupMainTable = tableCreate(columnsName)
         const groupMainTBody = groupMainTable.lastChild
 
@@ -79,24 +79,30 @@ async function renderProductsInGroupMain(groupData, groupMainDivision){
 
             const tdIndex = document.createElement('td')
             tdIndex.innerText = index + 1
+            tdIndex.style.width = '5%'
             tr.appendChild(tdIndex)
 
             const tdCode = document.createElement('td')
             tdCode.innerText = el.code
+            tdCode.style.width = '20%'
             tr.appendChild(tdCode)
 
             const tdName = document.createElement('td')
             tdName.innerText = el.name
+            tdName.style.width = '55%'
             tr.appendChild(tdName)
 
+            /*
             const tdOstatok = document.createElement('td')
             tdOstatok.innerText = el.ostatok
             tr.appendChild(tdOstatok)
+            */
 
             const action = document.createElement('td')
+            action.style.width = '20%'
             const buttonAdd = document.createElement('button')
             buttonAdd.innerText = `Добавить в корзину`
-            buttonAdd.dataset.id = el.id
+            buttonAdd.dataset.id = el.id 
             buttonAdd.addEventListener('click', async (event) => {
                 if (cart.has(el.id)){
                     cart.get(el.id).quantity++
