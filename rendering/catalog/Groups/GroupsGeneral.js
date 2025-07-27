@@ -3,7 +3,9 @@
  * @param {*} data Массив из главных групп товаров
  */
 async function renderGroupsGeneral(data) {
-    const groupsMenu = document.querySelector('#groupsMenu')
+    const groupsMenuDivision = document.querySelector('#groupsMenuDivision')
+    removeAllChildren(groupsMenuDivision)
+
     const ulGeneral = document.createElement('ul')
 
     data.forEach((el) => {
@@ -17,11 +19,11 @@ async function renderGroupsGeneral(data) {
 
         ulGeneral.appendChild(li)
     })
-    groupsMenu.appendChild(ulGeneral)
+    groupsMenuDivision.appendChild(ulGeneral)
 }
 
 /**
- * Рендеринг имен подгрупп в разделе #groupsMenu и 
+ * Рендеринг имен подгрупп в разделе #groupsMenuDivision и 
  * рендеринг данных в разделе #groupMain 
  */
 async function renderGroup(event){

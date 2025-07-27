@@ -31,11 +31,63 @@ div {
 }
 
 /*
+#region Стилизация общего шаблона для кнопки
+*/
+button {
+    background-color: #58c2ff;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    text-transform: none;
+    transition: transform .3s;
+}
+
+button:hover {
+    transform: scale(1.1)
+}
+
+button:active {
+    transform: scale(0.9)
+}
+
+/*
+#endregion Стилизация общего шаблона для кнопки
+*/
+
+/*
 #region Стилизация общего шаблона таблицы для сайта
 */
 
+thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #e2eeff;
+}
+
+thead tr th:first-child {
+	border-radius: 8px 0 0 8px;
+}
+
+thead tr th:last-child {
+	border-radius: 0 8px 8px 0;
+}
+
+tbody td {
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	vertical-align: top;
+}
+
 tbody tr:nth-child(even){
-	background: #f3f3f3;
+	background: #F5F7FA;
 }
 
 tbody tr td:first-child {
@@ -115,10 +167,15 @@ tbody tr td:last-child {
 /*
 #region Cтили компонентов групп
 */
+
 #groupsGeneralDivision {
     display: flex;
     flex-direction: row;
 }
+
+/*
+#region Стили списков ul для групп
+*/
 
 #groupsGeneralDivision ul{
     list-style-type: none;
@@ -176,6 +233,10 @@ tbody tr td:last-child {
 }
 
 /*
+#endregion Стили списков ul для групп
+*/
+
+/*
 #region Стили #groupMain
 */
 
@@ -193,17 +254,6 @@ tbody tr td:last-child {
     margin: 0px auto;
     border-collapse: collapse;
 }
-
-#groupMain th {
-    text-align: start;
-    padding: 3px 0;
-}
-
-#groupMain td {
-    text-align: start;
-    padding: 3px 0;
-}
-
 
 /*
 #endregion Стили #groupMain

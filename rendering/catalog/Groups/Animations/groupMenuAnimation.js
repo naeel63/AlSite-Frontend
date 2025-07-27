@@ -1,4 +1,4 @@
-const groupsMenuDivision = document.querySelector("#groupsMenu")
+const groupsMenuDivision = document.querySelector("#groupsMenuDivision")
 
 window.addEventListener('scroll',(event) => {
 const scrollPosY = window.scrollY
