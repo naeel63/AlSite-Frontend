@@ -1,5 +1,4 @@
 /**
- * Rendering group's subgroups in #groupMenu division.
  * Рендеринг имен подгрупп группы в #groupMenu разделе.
  * @param {*} groupData 
  */
@@ -107,6 +106,8 @@ async function renderProductsInGroupMain(groupData, groupMainProductsTBody){
                 
                 await cartItemQuantityChange(1)
             })
+            buttonAdd.classList.add("btn")
+            buttonAdd.classList.add("flash-btn")
             action.appendChild(buttonAdd)
             tr.appendChild(action)
 
