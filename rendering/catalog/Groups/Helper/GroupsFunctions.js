@@ -5,24 +5,30 @@
 async function renderSubgroupsNamesInGroupsMenu(groupData){
     const liGeneral = document.querySelector(`[data-id="${groupData.id}"]`) // поправить
     if (liGeneral.childElementCount == 1){
-        const ulChild = document.createElement('ul')
-
-        ulChild.dataset.name = `${groupData.name} ulChild`
-
-        groupData.children.forEach(el => {
-            const liChild = document.createElement('li')
-
-            liChild.innerHTML = `<span class="icon-menu"></span> ${el.name}`
-
-            liChild.dataset.id = el.id
-            
-
-            ulChild.appendChild(liChild)
-        })
-        liGeneral.appendChild(ulChild)
+        const ul = UlWithSubgroupsNames(groupData)
+        liGeneral.appendChild(ul)
     } else {
         liGeneral.firstElementChild.nextElementSibling.classList.toggle('none')
     }
+}
+
+/**
+ * Создание элемента группы ul с дочерними li с названиями его подгрупп
+ * @param {*} groupData Данные группы
+ * @returns ul для группы с li его подгрупп
+ */
+function UlWithSubgroupsNames(groupData){
+    const ul = document.createElement('ul')
+
+    groupData.children.forEach(el => {
+        const liChild = document.createElement('li')
+        liChild.dataset.id = el.id
+        liChild.innerHTML = `<span class="icon-menu"></span> ${el.name}`
+        
+        ul.appendChild(liChild)
+    })
+    
+    return ul
 }
 
 /**
@@ -48,15 +54,7 @@ async function renderGroupMain(groupData) {
 async function renderSubgroupsNamesInGroupMain(groupData, groupMainSubgroupsDivision){
 
     if (!groupData.children.length == 0) {
-        const ul = document.createElement('ul')
-        ul.innerText += 'Подгруппы:'
-
-        groupData.children.forEach(el => {
-            const li = document.createElement('li')
-            li.innerText = el.name
-
-            ul.appendChild(li)
-        })
+        const ul = UlWithSubgroupsNames(groupData)
 
         groupMainSubgroupsDivision.appendChild(ul)
     }
