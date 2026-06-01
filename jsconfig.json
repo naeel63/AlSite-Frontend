@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
-        "target": "ES2022",
-        "checkJs": true
+        "target": "ES2022"
     },
     "include": [
         "**/*.js"

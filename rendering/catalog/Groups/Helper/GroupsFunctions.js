@@ -8,7 +8,7 @@ async function renderSubgroupsNamesInGroupsMenu(groupData){
         const ul = UlWithSubgroupsNames(groupData)
         liGeneral.appendChild(ul)
     } else {
-        liGeneral.firstElementChild.nextElementSibling.classList.toggle('none')
+        liGeneral.firstElementChild.nextElementSibling.remove()
     }
 }
 
@@ -36,29 +36,12 @@ function UlWithSubgroupsNames(groupData){
  * @param {*} groupData Данные группы(подгруппы + ее товары)
  */
 async function renderGroupMain(groupData) {
-    const groupMainSubgroupsDivision = document.querySelector('#groupMainSubgroups')
     const groupMainProductsTBody = document.querySelector('#groupMainProductsTableBody')
     
-    removeAllChildren(groupMainSubgroupsDivision)
     removeAllChildren(groupMainProductsTBody)
-    await renderSubgroupsNamesInGroupMain(groupData, groupMainSubgroupsDivision)
     await renderProductsInGroupMain(groupData, groupMainProductsTBody)
 }
 
-
-/**
- * Рендеринг имен подгрупп в groupMain
- * @param {*} groupData Данные группы(подгруппы + ее товары)
- * @param {*} groupMainSubgroupsDivision Ccылка на контейнер, куда будут рендерится имена подгрупп
- */
-async function renderSubgroupsNamesInGroupMain(groupData, groupMainSubgroupsDivision){
-
-    if (!groupData.children.length == 0) {
-        const ul = UlWithSubgroupsNames(groupData)
-
-        groupMainSubgroupsDivision.appendChild(ul)
-    }
-}
 
 /**
  * Рендеринг продуктов в таблице продуктов при открытии группы с продуктами
