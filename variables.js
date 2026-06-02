@@ -10,6 +10,17 @@ const groupsGeneralDivision = document.querySelector('#groupsGeneralDivision')
 const cartItemCountInCatalogContainer = document.querySelector('#cartItemCountInCatalog')
 
 let catalogData = [];
+/**
+ * @typedef {Object} purchase
+ * @property {string} name
+ * @property {string} code
+ * @property {number} price
+ * @property {number} groupId
+ * @property {number} ostatok 
+ * @property {number} quantity
+ */
+/** @type {Map<number, purchase>} */
+const products = new Map();
 let cart = new Map();
 let actualDate = [];
 let contacts = [];
