@@ -17,6 +17,8 @@ function renderEmptyReceipt(parentDiv){
  * @param {Map<number, purchase>} cart
  */
 function renderCartPurchases(parentElement, cart){
+    parentElement.classList.add("rounded-lg", "border", "mb-6")
+
     cart.forEach((el, index) => {
         
         if(cart){
@@ -49,7 +51,7 @@ function renderCartPurchases(parentElement, cart){
                 purchaseTextDivCode.innerText = `Код: ${el.code}`
                 purchaseTextDivPrice.innerText = `${el.price} ₽`
 
-                purchaseTextDivPrice.classList.add("mt-2","text-primary")
+                purchaseTextDivPrice.classList.add("mt-2","color-primary")
 
                 const fragment = document.createDocumentFragment()
                 fragment.append(purchaseTextDivName, purchaseTextDivCode,purchaseTextDivPrice)
@@ -79,9 +81,9 @@ function renderCartPurchases(parentElement, cart){
                 `
 
                 countDiv.classList.add("gap-3", "flex", "items-center")
-                minusButton.classList.add("rounded", "border", "h-8", "w-8", "justify-center", "items-center", "background-white", "grey-hover")
+                minusButton.classList.add("flex","rounded", "border", "h-8", "w-8", "justify-center", "items-center", "background-white", "grey-hover")
                 countSpan.classList.add( "w-12", "text-center")
-                plusButton.classList.add("rounded", "border", "h-8", "w-8","justify-center", "items-center", "background-white", "grey-hover")
+                plusButton.classList.add("flex","rounded", "border", "h-8", "w-8","justify-center", "items-center", "background-white", "grey-hover")
                 
                 const fragment = document.createDocumentFragment()
                 fragment.append(minusButton, countSpan, plusButton)
@@ -94,7 +96,7 @@ function renderCartPurchases(parentElement, cart){
 
                 price.innerText = `${el.price} ₽`
 
-                price.classList.add("text-right", "text-primary", "min-w-100px")
+                price.classList.add("text-right", "color-primary", "min-w-100px")
 
                 priceDiv.appendChild(price)
             }
@@ -109,7 +111,7 @@ function renderCartPurchases(parentElement, cart){
                 </svg>
                 `
 
-                deleteButton.classList.add("background-white", "grey-hover", "delete-button", "p-2")
+                deleteButton.classList.add("background-white", "grey-hover", "delete-button", "p-2", "flex", "justify-center")
             }
 
             const fragment = document.createDocumentFragment()
@@ -121,4 +123,58 @@ function renderCartPurchases(parentElement, cart){
             console.log("Корзина пуста")
         }
     })
+}
+
+/**
+ * Рендеринг итогового чека
+ * @param {HTMLElement} parentElement
+ * @param {Map<number, purchase>} cart
+ */
+function renderReceipt(parentElement, cart){
+    parentElement.classList.add("rounded-lg", "border", "p-6")
+
+    const receiptDiv = document.createElement("div")
+    const applicationButton = document.createElement("button")
+
+    //Наполнение receiptDiv
+    {
+        const itogo = document.createElement("h2")
+        const totalPriceSpan = document.createElement("span")
+
+        itogo.innerText = "Итого"
+
+        //Цикл для подсчета итоговой суммы в чеке
+        let totalPrice = 0
+        cart.forEach((el, index) => {
+            if(el.price){
+                totalPrice += el.price
+            }
+            else {
+                console.log(`Для ${el.name} цены нет`)
+            }
+        })
+        totalPriceSpan.innerText = `${totalPrice} ₽`
+
+        totalPriceSpan.classList.add("text-right", "color-primary")
+        receiptDiv.classList.add("flex", "items-center", "justify-between", "mb-6")
+
+        const fragment = document.createDocumentFragment()
+        fragment.append(itogo, totalPriceSpan)
+        receiptDiv.appendChild(fragment)
+    }
+
+    //Наполнение applicationButton
+    {
+        applicationButton.innerText = "Оформить заявку"
+
+        applicationButton.classList.add("background-primary", "color-white",
+             "w-full", "py-3", "text-center", "border-none", "rounded",
+            "primary-hover")
+    }
+
+    
+
+    const fragment = document.createDocumentFragment()
+    fragment.append(receiptDiv, applicationButton)
+    parentElement.appendChild(fragment)
 }

@@ -7,34 +7,62 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="container">
-    <header id="cap" class="cap">
-        <div class="container cap_container">
-            <h2>АВТОЛИК</h2>
-            <h2 id="headerContacts"></h2>
-            <nav>
-                <button id="navButtonHome" name="home" role="button" class="nav-button active">Главная</button>
-                <button id="navButtonCatalog" name="catalog" role="button" class="nav-button">Каталог</button>
-                <button id="navButtonCart" name="cart" role="button" class="nav-button">Корзина</button>
-                <button id="navButtonContacts" name="contacts" role="button" class="nav-button">Контакты</button>
-            </nav>
+<body class="flex flex-col">
+    <header id="cap" class="cap background-white sticky">
+        <div class="">
+            <div class="container cap_container max-w-7xl mx-auto h-16 flex items-center justify-between">
+                <div class="flex gap-2 items-center">
+                    <div class="rounded background-primary color-white w-8 h-8 items-center justify-center flex">
+                        <span>AL</span>
+                    </div>
+                    <h2>
+                        Автолик
+                    </h2>
+                </div>
+                <nav class="flex gap-1">
+                    <button id="navButtonHome" name="home" role="button" class="nav-button px-4 py-2 rounded primary-bright-hover gap-2">Главная</button>
+                    <button id="navButtonCatalog" name="catalog" class="nav-button px-4 py-2 rounded primary-bright-hover gap-2">Каталог</button>
+                    <button id="navButtonCart" name="cart" role="button" class="nav-button px-4 py-2 rounded primary-bright-hover gap-2">Корзина</button>
+                    <button id="navButtonContacts" name="contacts" role="button" class="nav-button px-4 py-2 rounded primary-bright-hover gap-2">Контакты</button>
+                </nav>
+            </div>
         </div>
     </header>
-    <main class="container">
+    <main class="flex-1 py-8">
         <div id="content">
-            <div id="homeContent" class="content">
-                <h1>Добро пожаловать на наш сайт!</h1>
-                <p>Здесь вы можете найти лучшие товары.</p>
-            </div>
-            <div id="catalogContent" class="content none">
-                <div id="groupsGeneralDivision">
-                    <div id="groupsMenu" class="groupsDivision">
-                        <h2>Каталог групп:</h2>
-                        <div id="groupsMenuDivision" class="groupsDivision">
+            <section class="homeWelcome overflow-hidden rounded-lg py-16 px-4">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h1 class="text-4xl lg:text-5xl ">Качественные сельхоззапчасти</h1>
+                            <p class="text-muted-foreground py-5">
+                                Большой выбор оригинальных и качественных сельхоззапчастей. Гарантия качества и профессиональная консультация.
+                            </p>
+                            <div class="flex gap-3">
+                                <button class="background-primary rounded px-6 py-3 color-white primary-hover">
+                                Перейти в каталог
+                                </button>
+                                <button class="background-white border rounded px-6 py-3 grey-hover">
+                                Связаться с нами
+                                </button>
+                            </div>
+                        </div>
+                        <div class="relative h-64 lg:h-96 rounded-lg overflow-hidden">
+                            <img src="https://masterpiecer-images.s3.yandex.net/8c8823fdac5c11eead24be62f04505c7:upscaled" class="object-cover w-full h-full">
 
                         </div>
                     </div>
-                    <div id="groupMain" class="groupsDivision">
+                </div>
+            </section>
+            <div id="catalogContent" class="content none">
+                <div id="groupsGeneralDivision" class="gap-6">
+                    <div id="groupsMenu" class="groupsDivision p-6 border rounded-lg">
+                        <h2>Каталог групп:</h2>
+                        <div id="groupsMenuDivision" class="groupsDivision ">
+
+                        </div>
+                    </div>
+                    <div id="groupMain" class="groupsDivision border rounded-lg">
                         <div>
                             <table>
                                 <colgroup>
@@ -67,13 +95,13 @@
                     </div>
                 </div>
             </div>
-            <div id="cartContent" class="content none">
+            <div id="cartContent" class="max-w-4xl mx-auto content none">
                 <div>
                     <h2 style="padding-bottom: calc(var(--spacing)*8);">Корзина</h2>
                     <div id="cartPurchases" class="background-white">
 
                     </div>
-                    <div id="cartReceipt">
+                    <div id="cartReceipt" class="background-white">
 
                     </div>
                 </div>
