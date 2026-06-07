@@ -1,3 +1,6 @@
+/**
+ * @returns {Promise<Group[]>}
+ */
 async function fetchGroups(){
     const url = "https://localhost:7128/api/Group"
     try {

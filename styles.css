@@ -64,6 +64,10 @@ html {
     background-color: var(--primary);
 }
 
+.background-primary-bright {
+    background-color: var(--bright-primary-hover);
+}
+
 .background-white {
     background-color: white;
 }
@@ -88,6 +92,10 @@ html {
     border-width: 0px;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .flex {
     display: flex;
 }
@@ -106,10 +114,6 @@ html {
 
 .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.h-16 {
-    height: calc(var(--spacing)*16);
 }
 
 .max-w-2xl {
@@ -196,6 +200,10 @@ html {
     padding-block: calc(var(--spacing) * 16);
 }
 
+.px-3 {
+    padding-inline: calc(var(--spacing)*3);
+}
+
 .px-4 {
     padding-inline: calc(var(--spacing)*4);
 }
@@ -261,6 +269,10 @@ html {
     position: sticky;
 }
 
+.w-4 {
+    width: calc(var(--spacing)*4);
+}
+
 .w-8 {
     width: calc(var(--spacing)*8);
 }
@@ -273,8 +285,20 @@ html {
     width: 100%;
 }
 
+.h-fit {
+    height: fit-content;
+}
+
+.h-4 {
+    height: calc(var(--spacing)*4);
+}
+
 .h-8 {
     height: calc(var(--spacing)*8);
+}
+
+.h-16 {
+    height: calc(var(--spacing)*16);
 }
 
 .h-64 {
@@ -351,6 +375,14 @@ html {
     .lg\:grid-cols-4 {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+
+    .lg\:grid-cols-\[280px_1fr\] {
+        grid-template-columns: 280px 1fr;
+    }
+
+    .lg\:sticky {
+        position: sticky;
+    }
 }
 
 @media (min-width: 48rem) {
@@ -390,6 +422,9 @@ body {
     background: linear-gradient(to right, rgb(255, 225, 198), white);
 }
 
+.groupsMenu-category {
+
+}
 
 /*
 #region Стилизация общего шаблона таблицы для сайта
@@ -460,6 +495,10 @@ tbody tr td:last-child {
 #endregion Cтили компонентов nav 
 */
 
+.group {
+
+}
+
 /*
 #region Cтили компонентов групп
 */
@@ -497,11 +536,6 @@ tbody tr td:last-child {
 .icon-menu {
     align-items: center;
     content: url('img/plus.svg');
-}
-
-#groupsMenu {
-    width: 30%;
-    height: min-content;
 }
 
 /*
@@ -603,9 +637,7 @@ ul {
     margin: 0;
 }
 
-.none {
-    display: none !important;
-}
+
 
 button, input, select, optgroup, textarea {
     font: inherit;
@@ -616,4 +648,8 @@ button, input, select, optgroup, textarea {
     opacity: 1;
     background-color: #0000;
     border-radius: 0;
+}
+
+.none {
+    display: none !important;
 }

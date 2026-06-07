@@ -9,6 +9,8 @@ const groupsGeneralDivision = document.querySelector('#groupsGeneralDivision')
 
 const cartItemCountInCatalogContainer = document.querySelector('#cartItemCountInCatalog')
 
+const groupsDiv = document.querySelector('#groups')
+
 let catalogData = [];
 /**
  * @typedef {Object} purchase
@@ -25,3 +27,11 @@ let cart = new Map();
 let actualDate = [];
 let contacts = [];
 let cartItemQuantity = 0;
+
+/**
+ * @typedef {Object} Group
+ * @property {number} id
+ * @property {string} name
+ * @property {Array<Group>} children
+ */
+
