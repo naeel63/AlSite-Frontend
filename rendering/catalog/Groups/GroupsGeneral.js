@@ -27,7 +27,6 @@ async function renderGroupsGeneral(data) {
  * рендеринг данных в разделе #groupMain 
  */
 async function renderGroup(event){
-    console.log(event.target.tagName)
     if (event.target.tagName === "LI") {
         const groupData = await fetchGroupData(event.target.dataset.id)
         await renderSubgroupsNamesInGroupsMenu(groupData)
@@ -38,21 +37,27 @@ async function renderGroup(event){
 async function renderGroupMenu(){
     const parentDiv = document.querySelector("#groupsFromDB")
 
-    renderSubgroups(parentDiv, true)
+    //Добавление логики по загрузке подгрупп у группы при клике и их стилей+рендеринг главных групп при переходе в каталог
+    if(!(parentDiv.classList.contains('main-groups-loaded'))){
+        parentDiv.classList.add('main-groups-loaded')
+        
+        groupsDiv.addEventListener('click', event => {
+            const item = event.target.closest('.group')
 
-    groupsDiv.addEventListener('click', event => {
-        const item = event.target.closest('.group')
+            if (!item) return;
 
-        if (!item) return;
+            groupsDiv.querySelectorAll(".group.background-accent").forEach(item => {
+                item.classList.remove("background-accent");
+            });
 
-        groupsDiv.querySelectorAll(".group.background-accent").forEach(item => {
-            item.classList.remove("background-accent");
-        });
+            item.classList.toggle("background-accent");
 
-        item.classList.toggle("background-accent");
-
-        renderSubgroups(item,false)
-    })
+            renderSubgroups(item,false)
+        })
+    
+        //Рендеринг главных групп при открытии каталога
+        renderSubgroups(parentDiv, true)
+    }
 }
 
 /**
@@ -65,16 +70,11 @@ async function renderSubgroups(parentDiv, isMainGroups) {
         parentDiv.classList.remove('child-loaded')
         parentDiv.parentElement.querySelectorAll(':scope > .child').forEach(el => {
             el.classList.remove('none')
-            console.log(el)
-            console.log(el.classList.contains('none'))
         })
     } 
     else if (parentDiv.classList.contains('loaded')) {
-        console.log(parentDiv.parentElement.querySelectorAll('.child'))
         parentDiv.parentElement.querySelectorAll(':scope > .child').forEach(el => {
             el.classList.add('none')
-            console.log(el)
-            console.log(el.classList.contains('none'))
         })
 
         parentDiv.classList.add('child-loaded')
@@ -100,7 +100,11 @@ async function renderSubgroups(parentDiv, isMainGroups) {
                 <span class = "flex-1">${element.name}</span>
                 `
             div2.dataset.id = `${element.id}`
-            parentDiv.parentElement.appendChild(div1)
+
+            if (isMainGroups){
+                parentDiv.appendChild(div1)
+            } else parentDiv.parentElement.appendChild(div1)
+            
         
             
             if (!isMainGroups) {
@@ -109,6 +113,12 @@ async function renderSubgroups(parentDiv, isMainGroups) {
             }
         });
     }
+}
 
+/**
+ * 
+ * @param {number} groupId 
+ */
+function renderGroupProducts(groupId = -1){
     
 }

@@ -3,8 +3,6 @@ navigateButtons.forEach(element => {
     /** @type {HTMLElement} section*/
     const section = document.querySelector(`#${sectionName}`)
 
-    console.log(sectionName)
-
     if (sectionName == "catalogContent"){
         element.addEventListener("click", (event) => {
             renderGroupMenu();

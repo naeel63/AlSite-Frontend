@@ -5,7 +5,6 @@ async function renderHeaderContacts(contacts) {
 		const contactElement = document.createElement('span');
 		contacts.forEach(contact => {
 			
-			console.log(contact)
 			if (headerContacts.textContent) {
 				contactElement.textContent += ', ';
 			}

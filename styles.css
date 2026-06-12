@@ -376,6 +376,12 @@ html {
     line-height: var(--tw-leading, var(--text-4xl--line-height));
 }
 
+@media (min-width: 80rem) {
+    .xl\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 @media (min-width: 64rem) {
     .lg\:h-96 {
         height: calc(var(--spacing) * 96);
