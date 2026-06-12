@@ -36,28 +36,9 @@ async function renderGroup(event){
 }
 
 async function renderGroupMenu(){
-    console.log("great")
-    const mainGroups = await fetchGroups()
     const parentDiv = document.querySelector("#groupsFromDB")
-    console.log(mainGroups)
 
-    mainGroups.forEach(element => {
-        div1 = document.createElement('div')
-        div2 = document.createElement('div')
-        div1.appendChild(div2)
-
-        div2.classList.add('flex','items-center','gap-2', 'py-2', 'px-3', 'rounded', 'cursor-pointer', 'grey-hover', 'group')
-        div2.innerHTML = `
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill w-4 h-4 color-primary  " viewBox="0 0 16 16">
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                </svg>
-            </button>
-            <span class = "flex-1">${element.name}</span>
-        `
-        div2.dataset.id = `${element.id}`
-        parentDiv.appendChild(div1)
-    });
+    renderSubgroups(parentDiv, true)
 
     groupsDiv.addEventListener('click', event => {
         const item = event.target.closest('.group')
@@ -69,8 +50,65 @@ async function renderGroupMenu(){
         });
 
         item.classList.toggle("background-accent");
-        item.classList.toggle("grey-hover");
-        
 
+        renderSubgroups(item,false)
     })
+}
+
+/**
+ * Рендеринг групп в родительском элементе
+ * @param {HTMLElement} parentDiv
+ * @param {boolean} isMainGroups
+ */
+async function renderSubgroups(parentDiv, isMainGroups) {
+    if (parentDiv.classList.contains('child-loaded')){
+        parentDiv.classList.remove('child-loaded')
+        parentDiv.parentElement.querySelectorAll(':scope > .child').forEach(el => {
+            el.classList.remove('none')
+            console.log(el)
+            console.log(el.classList.contains('none'))
+        })
+    } 
+    else if (parentDiv.classList.contains('loaded')) {
+        console.log(parentDiv.parentElement.querySelectorAll('.child'))
+        parentDiv.parentElement.querySelectorAll(':scope > .child').forEach(el => {
+            el.classList.add('none')
+            console.log(el)
+            console.log(el.classList.contains('none'))
+        })
+
+        parentDiv.classList.add('child-loaded')
+    } 
+    else {
+        const groups = isMainGroups
+        ? await fetchGroups()
+        : (await fetchGroupData(parentDiv.dataset.id)).children
+        
+        groups.forEach(element => {
+            div1 = document.createElement('div')
+            div2 = document.createElement('div')
+            div1.appendChild(div2)
+
+            div2.classList.add('flex','items-center','gap-2', 'py-2', 'px-3', 'rounded', 'cursor-pointer', 'grey-hover', 'group')
+            div2.innerHTML = 
+                `
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill w-4 h-4 color-primary  " viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                    </svg>
+                </button>
+                <span class = "flex-1">${element.name}</span>
+                `
+            div2.dataset.id = `${element.id}`
+            parentDiv.parentElement.appendChild(div1)
+        
+            
+            if (!isMainGroups) {
+                div1.classList.add('border-l-2', 'pl-2', 'ml-5', 'child')
+                parentDiv.classList.add('loaded')
+            }
+        });
+    }
+
+    
 }

@@ -1,5 +1,6 @@
 /**
  * Download group's data with children and products by group's id
+ * @returns {Promise<Group[]>}
  */
 async function fetchGroupData(groupId){
     const url = `https://localhost:7128/api/Group/${groupId}`

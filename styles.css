@@ -58,6 +58,10 @@ html {
     font-family: var(--default-font-family);
     height: 100%;
     width: 100%;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .background-primary {
@@ -86,6 +90,12 @@ html {
     border-top-style: var(--border-style);
     border-top-color: var(--border-color);
     border-top-width: var(--border-width);
+}
+
+.border-l-2 {
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: var(--border-color);
 }
 
 .border-none {
@@ -156,6 +166,14 @@ html {
     margin-top: calc(var(--spacing)*2) !important;
 }
 
+.ml-5 {
+    margin-left: calc(var(--spacing)*5) !important;
+}
+
+.ml-6 {
+    margin-left: calc(var(--spacing)*6) !important;
+}
+
 .mx-auto {
     margin-inline: auto;
 }
@@ -174,6 +192,10 @@ html {
 
 .p-8 {
     padding: calc(var(--spacing)*8);
+}
+
+.pl-2 {
+    padding-left: calc(var(--spacing)*2);
 }
 
 .py-2 {
@@ -354,20 +376,16 @@ html {
     line-height: var(--tw-leading, var(--text-4xl--line-height));
 }
 
-.lg\:text-5xl {
-    @media (width >= 64rem) {
+@media (min-width: 64rem) {
+    .lg\:h-96 {
+        height: calc(var(--spacing) * 96);
+    }
+
+    .lg\:text-5xl {
         font-size: var(--text-5xl);
         line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
-}
 
-.lg\:h-96 {
-    @media (width >= 64rem) {
-        height: calc(var(--spacing) * 96);
-    }
-}
-
-@media (min-width: 64rem) {
     .lg\:grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -426,48 +444,9 @@ body {
 
 }
 
-/*
-#region Стилизация общего шаблона таблицы для сайта
-*/
-
-thead th {
-	font-weight: bold;
-	text-align: left;
-	border: none;
-	padding: 10px 15px;
-	background: #e2eeff;
+.loaded {
+    
 }
-
-thead tr th:first-child {
-	border-radius: 8px 0 0 8px;
-}
-
-thead tr th:last-child {
-	border-radius: 0 8px 8px 0;
-}
-
-tbody td {
-	text-align: left;
-	border: none;
-	padding: 10px 15px;
-	vertical-align: top;
-}
-
-tbody tr:nth-child(even){
-	background: #F5F7FA;
-}
-
-tbody tr td:first-child {
-	border-radius: 8px 0 0 8px;
-}
-
-tbody tr td:last-child {
-	border-radius: 0 8px 8px 0;
-}
-
-/*
-#endregion Стилизация общего шаблона таблицы для сайта
-*/
 
 /*
 #region Cтили header
@@ -499,105 +478,11 @@ tbody tr td:last-child {
 
 }
 
-/*
-#region Cтили компонентов групп
-*/
-
-#groupsGeneralDivision {
-    display: flex;
-    flex-direction: row;
-}
-
-/*
-#region Стили списков ul для групп
-*/
-
-#groupsGeneralDivision ul{
-    list-style-type: none;
-    padding: 0;
-}
-
-#groupsGeneralDivision li{
-    align-items: center;
-    position: relative;
-    width: fit-content;
-    margin-left: 15px;
-    border-bottom: 3px solid transparent;
-    border-radius: 5px;
-    transition: .3s;
-    margin-right: 10px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    &:hover{
-        border-color: darksalmon;
-    }
-}
-
-.icon-menu {
-    align-items: center;
-    content: url('img/plus.svg');
-}
-
-/*
-#endregion Стили списков ul для групп
-*/
-
-/*
-#region Стили #groupMain
-*/
-
-#groupMain {
-    width: 70%;
-}
- 
-#groupMain li {
-    list-style-position: inside;
-}
-
-#groupMain table {
-    table-layout: auto;
-    width: 90%;
-    margin: 0px auto;
-    border-collapse: collapse;
-}
-
-/*
-#endregion Стили #groupMain
-*/
-
-.groupsDivision {
-    background-color: #fff;
-    border-radius: 15px;
-}
-
-/*
-#endregion Cтили компонентов групп
-*/
-
-
-
-ul {
-  padding-left: 1.5em;
-}
-
-#catalogTable {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#catalogTable th, #catalogTable td, #cartTable th, #cartTable td {
-    border: 1px solid #000000;
-    padding: 8px;
-    text-align: left;
-}
-
 #cartPreview {
     background-color:#999393;
     border-radius: 15px;
     padding: 5px;
 }
-
-
 
 #emptyCart {
   text-align: center;
