@@ -11,7 +11,6 @@ const cartItemCountInCatalogContainer = document.querySelector('#cartItemCountIn
 
 const groupsDiv = document.querySelector('#groups')
 
-let catalogData = [];
 /**
  * @typedef {Object} purchase
  * @property {string} name
@@ -23,6 +22,7 @@ let catalogData = [];
  */
 /** @type {Map<number, purchase>} */
 const products = new Map();
+
 let cart = new Map();
 let actualDate = [];
 let contacts = [];
@@ -34,4 +34,6 @@ let cartItemQuantity = 0;
  * @property {string} name
  * @property {Array<Group>} children
  */
+
+
 
