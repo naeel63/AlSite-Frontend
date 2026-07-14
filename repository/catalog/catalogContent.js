@@ -1,5 +1,5 @@
-async function fetchCatalog() {
-    const url = 'https://localhost:7128/api/Product';
+async function fetchProducts(page = 1, pageSize = 15) {
+    const url = `https://localhost:7128/api/Product?page=${page}&pageSize=${pageSize}`;
     try {
         const response = await fetch(url)
         if (!response.ok) {

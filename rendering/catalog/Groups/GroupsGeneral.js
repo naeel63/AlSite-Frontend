@@ -1,39 +1,7 @@
 /**
- * Рендеринг главных групп товаров
- * @param {*} data Массив из главных групп товаров
+ * Рендеринг имен подгрупп в разделе #groupsMenu и 
+ * рендеринг данных в разделе #groupProducts 
  */
-async function renderGroupsGeneral(data) {
-    const groupsMenuDivision = document.querySelector('#groupsMenuDivision')
-    removeAllChildren(groupsMenuDivision)
-
-    const ulGeneral = document.createElement('ul')
-
-    data.forEach((el) => {
-        const li = document.createElement('li')
-        li.innerHTML = `<span class="icon-menu"></span> ${el.name}`
-
-        li.dataset.id = el.id
-
-        li.addEventListener('click', renderGroup)
-        li.addEventListener('click', plusMinusSwapper)
-
-        ulGeneral.appendChild(li)
-    })
-    groupsMenuDivision.appendChild(ulGeneral)
-}
-
-/**
- * Рендеринг имен подгрупп в разделе #groupsMenuDivision и 
- * рендеринг данных в разделе #groupMain 
- */
-async function renderGroup(event){
-    if (event.target.tagName === "LI") {
-        const groupData = await fetchGroupData(event.target.dataset.id)
-        await renderSubgroupsNamesInGroupsMenu(groupData)
-        await renderGroupMain(groupData)
-    }
-}
-
 async function renderGroupMenu(){
     const parentDiv = document.querySelector("#groupsFromDB")
 
@@ -43,7 +11,6 @@ async function renderGroupMenu(){
         
         groupsDiv.addEventListener('click', event => {
             const item = event.target.closest('.group')
-
             if (!item) return;
 
             groupsDiv.querySelectorAll(".group.background-accent").forEach(item => {
@@ -57,6 +24,7 @@ async function renderGroupMenu(){
     
         //Рендеринг главных групп при открытии каталога
         renderSubgroups(parentDiv, true)
+        renderGroupProducts()
     }
 }
 
@@ -119,6 +87,21 @@ async function renderSubgroups(parentDiv, isMainGroups) {
  * 
  * @param {number} groupId 
  */
-function renderGroupProducts(groupId = -1){
-    
+async function renderGroupProducts(groupId = -1){
+    const divGroupProducts = document.querySelector('#groupProducts')
+    const products = (groupId == -1)
+    ? await fetchProducts()
+    : await fetchGroupData(groupId)
+
+    products.items.forEach(el =>{
+        console.log('t')
+        const divProductCard = document.createElement('div')
+        divProductCard.classList.add('bg-white', 'rounded-lg', 'border', 'overflow-hidden', 'hover-shadow')
+
+        const divProductCardImage = document.createElement('div')
+        divProductCardImage.classList.add('relative', 'h-48', 'background-secondary')
+
+        divProductCard.appendChild(divProductCardImage)
+        divGroupProducts.appendChild(divProductCard)
+    })
 }

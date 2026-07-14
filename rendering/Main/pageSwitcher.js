@@ -6,6 +6,7 @@ navigateButtons.forEach(element => {
     if (sectionName == "catalogContent"){
         element.addEventListener("click", (event) => {
             renderGroupMenu();
+            
         })
     }
     

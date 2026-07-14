@@ -1,6 +1,7 @@
 :root{
     --accent: #ffe8d9;
     --background: #F9FAFB;
+    --secondary: #e5e7eb;
     --radius: 5px;
     --spacing: .25rem;
     --border-style: solid;
@@ -62,10 +63,20 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scrollbar-gutter: stable;
+
+}
+
+.relative {
+    position: relative;
 }
 
 .background-primary {
     background-color: var(--primary);
+}
+
+.background-secondary {
+    background-color: var(--secondary);
 }
 
 .background-primary-bright {
@@ -243,6 +254,7 @@ html {
 }
 
 
+
 .color-primary {
     color: var(--primary);
 }
@@ -323,6 +335,10 @@ html {
     height: calc(var(--spacing)*16);
 }
 
+.h-48 {
+    height: calc(var(--spacing)*48);
+}
+
 .h-64 {
     height: calc(var(--spacing)*64);
 }
@@ -351,6 +367,10 @@ html {
     color: var(--muted-foreground);
 }
 
+.hover-shadow:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 .grey-hover:hover {
     background-color: #e5e7eb;
 }
@@ -376,7 +396,7 @@ html {
     line-height: var(--tw-leading, var(--text-4xl--line-height));
 }
 
-@media (min-width: 80rem) {
+@media (width >= 80rem) {
     .xl\:grid-cols-3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
