@@ -5,12 +5,12 @@ async function renderCart(cart) {
     const cartReceipt = document.querySelector('#cartReceipt')
     cartReceipt.innerHTML = ''
 
-    if (cart.size != 0){
+    if (cart.length != 0 && cart.length !== undefined){
 
         renderCartPurchases(cartPurchases, cart)
     }
 
-    if (cart.size != 0) {
+    if (cart.length != 0 && cart.length !== undefined) {
 
         renderReceipt(cartReceipt, cart)
 
@@ -18,7 +18,5 @@ async function renderCart(cart) {
 
         renderEmptyReceipt(cartReceipt)
     }
-
-
-    
+ 
 }

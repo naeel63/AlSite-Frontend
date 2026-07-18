@@ -19,7 +19,7 @@ function renderEmptyReceipt(parentDiv){
 function renderCartPurchases(parentElement, cart){
     parentElement.classList.add("rounded-lg", "border", "mb-6")
 
-    cart.forEach((el, index) => {
+    cart.forEach((el) => {
         
         if(cart){
 
@@ -147,7 +147,7 @@ function renderReceipt(parentElement, cart){
         let totalPrice = 0
         cart.forEach((el, index) => {
             if(el.price){
-                totalPrice += el.price
+                totalPrice += el.price*el.quantity
             }
             else {
                 console.log(`Для ${el.name} цены нет`)

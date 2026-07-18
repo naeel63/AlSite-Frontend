@@ -23,7 +23,7 @@ const groupsDiv = document.querySelector('#groups')
 /** @type {Map<number, purchase>} */
 const products = new Map();
 
-let cart = new Map();
+let cart = [];
 let actualDate = [];
 let contacts = [];
 let cartItemQuantity = 0;

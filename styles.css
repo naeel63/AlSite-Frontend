@@ -16,9 +16,11 @@
     --primary: #ff9f66;
     --primary-hover: #eb905c;
     --bright-primary-hover: #ff9e6673;
+    --foreground: #1F2937;
     --muted-foreground: #6B7280;
     --text-lg: 1.125rem;
     --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
@@ -36,6 +38,12 @@
 h1, h2, h3, h4, h5, h6 {
     font-size: inherit;
     font-weight: inherit;
+}
+
+h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
 }
 
 h2 {
@@ -149,6 +157,10 @@ html {
     max-width: var(--container-7xl);
 }
 
+.mt-auto {
+    margin-top: auto;
+}
+
 .mb-2 {
     margin-bottom: calc(var(--spacing)*2);
 }
@@ -162,7 +174,11 @@ html {
 }
 
 .mb-8 {
-    margin-bottom: calc(var(--spacing)*6);
+    margin-bottom: calc(var(--spacing)*8);
+}
+
+.mb-12 {
+    margin-bottom: calc(var(--spacing)*12);
 }
 
 .mb-16 {
@@ -171,6 +187,10 @@ html {
 
 .min-w-100px {
     min-width: 100px;
+}
+
+.mt-1 {
+    margin-top: calc(var(--spacing)*1) !important;
 }
 
 .mt-2 {
@@ -263,6 +283,10 @@ html {
     color: white;
 }
 
+.items-start {
+    align-items: flex-start;
+}
+
 .gap-1 {
     gap: calc(var(--spacing)*1);
 }
@@ -303,6 +327,10 @@ html {
     position: sticky;
 }
 
+.w-2 {
+    width: calc(var(--spacing)*2);
+}
+
 .w-4 {
     width: calc(var(--spacing)*4);
 }
@@ -319,8 +347,20 @@ html {
     width: 100%;
 }
 
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+.h-full {
+    height: 100%;
+}
+
 .h-fit {
     height: fit-content;
+}
+
+.h-2 {
+    height: calc(var(--spacing)*2);
 }
 
 .h-4 {
@@ -363,6 +403,10 @@ html {
     text-align: right;
 }
 
+.text-foreground {
+    color: var(--foreground);
+}
+
 .text-muted-foreground {
     color: var(--muted-foreground);
 }
@@ -391,15 +435,23 @@ html {
     overflow: hidden;
 }
 
+.shrink-0 {
+    flex-shrink: 0;
+}
+
 .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
 }
 
-@media (width >= 80rem) {
-    .xl\:grid-cols-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (min-width: 48rem) {
+    .sm\px-6 {
+        padding-inline: calc(var(--spacing)*6);
     }
+
+    .md\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
 }
 
 @media (min-width: 64rem) {
@@ -427,12 +479,18 @@ html {
     .lg\:sticky {
         position: sticky;
     }
+
+    .lg\:px-8 {
+        padding-inline: calc(var(--spacing)*8);
+    }
 }
 
-@media (min-width: 48rem) {
-    .md\:grid-cols-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+
+
+@media (min-width: 80rem) {
+    .xl\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 
@@ -444,6 +502,10 @@ img, svg, video, canvas, audio, iframe, embed, object {
 
 .object-cover {
     object-fit: cover;
+}
+
+.object-center {
+    object-position: center;
 }
 
 .delete-button {
