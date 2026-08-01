@@ -27,7 +27,7 @@ let cart = [];
 let actualDate = [];
 let contacts = [];
 let cartItemQuantity = 0;
-
+let pageProductCount = 15;
 /**
  * @typedef {Object} Group
  * @property {number} id

@@ -93,6 +93,7 @@ async function renderSubgroups(parentDiv, isMainGroups) {
  * @param {number} groupId 
  */
 async function renderGroupProducts(groupId = -1){
+    //Рендеринг карточек товара
     const divGroupProducts = document.querySelector('#groupProducts')
     const products = (groupId == -1)
     ? await fetchProducts()
@@ -162,4 +163,10 @@ async function renderGroupProducts(groupId = -1){
         divProductCard.appendChild(divProductCardBody)
         divGroupProducts.appendChild(divProductCard)
     })
+
+    const pagesCount = (groupId == -1)
+    ? (Math.floor(products.totalCount/pageProductCount) + 1)
+    : (Math.floor(await fetchGroupCount(groupId)/pageProductCount) + 1)
+    
+    const paginationDiv = document.createElement('div')
 }
