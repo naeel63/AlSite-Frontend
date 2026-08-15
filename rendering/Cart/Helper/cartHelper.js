@@ -168,8 +168,13 @@ function renderReceipt(parentElement, cart){
         applicationButton.innerText = "Оформить заявку"
 
         applicationButton.classList.add("background-primary", "color-white",
-             "w-full", "py-3", "text-center", "border-none", "rounded",
+            "w-full", "py-3", "text-center", "border-none", "rounded",
             "primary-hover")
+
+        applicationButton.addEventListener(
+            'click',
+            () => openCheckoutModal(cart)
+        )
     }
 
     
