@@ -157,6 +157,8 @@ html {
     max-width: var(--container-7xl);
 }
 
+
+
 .mt-auto {
     margin-top: auto;
 }
@@ -195,6 +197,10 @@ html {
 
 .mt-2 {
     margin-top: calc(var(--spacing)*2) !important;
+}
+
+.mt-8 {
+    margin-top: calc(var(--spacing)*8) !important;
 }
 
 .ml-5 {
@@ -339,6 +345,10 @@ html {
     width: calc(var(--spacing)*8);
 }
 
+.w-9 {
+    width: calc(var(--spacing)*9);
+}
+
 .w-12 {
     width: calc(var(--spacing)*12);
 }
@@ -369,6 +379,10 @@ html {
 
 .h-8 {
     height: calc(var(--spacing)*8);
+}
+
+.h-9 {
+    height: calc(var(--spacing)*9);
 }
 
 .h-16 {
