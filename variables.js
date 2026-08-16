@@ -13,11 +13,12 @@ const groupsDiv = document.querySelector('#groups')
 
 /**
  * @typedef {Object} purchase
+ * @property {number} id
  * @property {string} name
  * @property {string} code
  * @property {number} price
  * @property {number} groupId
- * @property {number} ostatok 
+ * @property {number} ostatok
  * @property {number} quantity
  */
 /** @type {Map<number, purchase>} */
