@@ -777,7 +777,7 @@ body.checkout-modal-open {
 .checkout-modal__fields {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 9px;
 }
 
 .checkout-fields-row {
@@ -952,7 +952,7 @@ body.checkout-modal-open {
     align-items: flex-start;
     gap: 10px;
     cursor: pointer;
-    margin-top: 4px;
+    
 }
 
 .checkout-consent input {
@@ -976,6 +976,25 @@ body.checkout-modal-open {
     margin-top: -12px;
     color: #dc2626;
     font-size: 0.8rem;
+}
+
+.cart-button {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-button:hover {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.cart-button:active {
+    transform: scale(0.95);
+}
+
+.checkout-modal__item strong {
+    white-space: nowrap;
+    min-width: 70px;
+    text-align: right;
 }
 
 .none {

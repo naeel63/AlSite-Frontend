@@ -160,7 +160,8 @@ async function renderGroupProducts(groupId = -1, page = 1) {
             "rounded",
             "background-primary",
             "color-white",
-            "primary-hover"
+            "primary-hover",
+            "cart-button"
         );
 
         button.innerHTML = `
@@ -180,6 +181,7 @@ async function renderGroupProducts(groupId = -1, page = 1) {
                 existing.quantity++;
             } else {
                 cart.push({
+                    id: el.id,
                     name: el.name,
                     code: el.code,
                     price: el.price,

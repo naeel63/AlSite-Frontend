@@ -67,7 +67,7 @@ function openCheckoutModal(cart) {
                     <div class="checkout-modal__fields">
 
                         <div class="checkout-modal__section-title">
-                            Контактные данные
+                            <h2>Контактные данные</h2>
                         </div>
 
                         <label class="checkout-field">
@@ -104,19 +104,6 @@ function openCheckoutModal(cart) {
                             <small data-error-for="phone"></small>
                         </label>
 
-                        <label class="checkout-field">
-                            <span>
-                                Комментарий
-                            </span>
-
-                            <textarea
-                                name="comment"
-                                rows="4"
-                                placeholder="Например, удобное время звонка"
-                                maxlength="500"
-                            ></textarea>
-                        </label>
-
                         <label class="checkout-consent">
                             <input
                                 id="personalDataConsent"
@@ -134,6 +121,19 @@ function openCheckoutModal(cart) {
                             class="checkout-consent__error"
                             data-error-for="personalDataConsent"
                         ></small>
+
+                        <label class="checkout-field">
+                            <span>
+                                Комментарий
+                            </span>
+
+                            <textarea
+                                name="comment"
+                                rows="4"
+                                placeholder="Например, удобное время звонка"
+                                maxlength="500"
+                            ></textarea>
+                        </label>
 
                     </div>
 
@@ -319,6 +319,30 @@ function openCheckoutModal(cart) {
                 return;
             }
 
+            const orderItems = cart.map((item) => ({
+                productId: Number(item.id),
+                code: item.code,
+                name: item.name,
+                price: Number(item.price) || 0,
+                quantity: Number(item.quantity) || 0
+            }));
+
+            const invalidProduct =
+                orderItems.some((item) =>
+                    !Number.isInteger(item.productId) ||
+                    item.productId <= 0
+                );
+
+            if (invalidProduct) {
+                status.className =
+                    "checkout-form-status checkout-form-status--error";
+
+                status.textContent =
+                    "Не удалось определить товар в корзине. Обновите страницу и попробуйте ещё раз.";
+
+                return;
+            }
+
             const orderPayload = {
                 customer: {
                     name,
@@ -327,22 +351,7 @@ function openCheckoutModal(cart) {
                     personalDataConsent: consent
                 },
 
-                items: cart.map((item) => ({
-                    productId:
-                        item.id ??
-                        item.productId ??
-                        null,
-
-                    code: item.code,
-
-                    name: item.name,
-
-                    price:
-                        Number(item.price) || 0,
-
-                    quantity:
-                        Number(item.quantity) || 0
-                })),
+                items: orderItems,
 
                 total,
 
@@ -397,11 +406,6 @@ function openCheckoutModal(cart) {
                     .forEach((field) => {
                         field.disabled = true;
                     });
-
-                window.setTimeout(
-                    closeModal,
-                    2200
-                );
 
             } catch (error) {
 
