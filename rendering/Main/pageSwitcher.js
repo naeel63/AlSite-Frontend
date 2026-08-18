@@ -27,3 +27,15 @@ navigateButtons.forEach(element => {
         }
     })
 });
+
+const homeCatalogButton = document.querySelector('#homeCatalogButton');
+
+homeCatalogButton.addEventListener('click', () => {
+    document.querySelector('#navButtonCatalog').click();
+});
+
+const homeContactsButton = document.querySelector('#homeContactsButton');
+
+homeContactsButton.addEventListener('click', () => {
+    document.querySelector('#navButtonContacts').click();
+});
